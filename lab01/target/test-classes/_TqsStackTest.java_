@@ -1,0 +1,100 @@
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertThrows;
+import java.util.NoSuchElementException;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
+import lab01.TqsStack;
+
+class TqsStackTest {
+
+    @BeforeEach
+    void init(){}
+
+	@Test
+	void sizeOnConstruction() {
+        TqsStack stack = new TqsStack<>();
+		assertEquals(0, stack.size());
+	}
+
+    @Test
+	void emptyOnConstruction() {
+        TqsStack stack = new TqsStack<>();
+		assertEquals(true, stack.isEmpty());
+	}
+
+    @Test
+	void afterPush() {
+        TqsStack<Integer> stack = new TqsStack<>();
+        stack.push(1);
+        stack.push(2);
+        stack.push(3);
+		assertEquals(false, stack.isEmpty());
+        assertEquals(3, stack.size());
+	}
+
+    @Test
+	void popAfterPush() {
+        TqsStack<Integer> stack = new TqsStack<>();
+        int example = 1;
+        stack.push(example);
+		assertEquals(example, stack.pop());
+	}
+
+    @Test
+	void peekAfterPush() {
+        TqsStack<Integer> stack = new TqsStack<>();
+        int example = 1;
+        stack.push(example);
+        int size = stack.size();
+        assertEquals(example, stack.peek());
+		assertEquals(size, stack.size());
+	}
+
+    @Test
+	void sizeAfterPops() {
+        TqsStack<Integer> stack = new TqsStack<>();
+        int example1 = 1;
+        int example2 = 2;
+        stack.push(example1);
+        stack.push(example2);
+        stack.pop();
+        stack.pop();
+        assertEquals(0, stack.size());
+		assertEquals(true, stack.isEmpty());
+	}
+
+    @Test
+	void popFromEmptyStack() {
+        TqsStack stack = new TqsStack<>();
+        assertThrows(NoSuchElementException.class, () -> {stack.pop();});
+	}
+
+    @Test
+	void peekFromEmptyStack() {
+        TqsStack stack = new TqsStack<>();
+        assertThrows(NoSuchElementException.class, () -> {stack.peek();});
+	}
+
+    @Test
+	void pushOntoFullStack() {
+        TqsStack<Integer> stack = new TqsStack<>();
+        stack.push(1);
+        stack.push(2);
+        stack.push(3);
+        stack.push(4);
+        stack.push(5);
+        assertThrows(IllegalStateException.class, () -> {stack.push(6);});
+	}
+
+    @Test
+    void testPopTopN() {
+        stack.push(1);
+        stack.push(2);
+        stack.push(3);
+        stack.push(4);
+
+        assertEquals(3, stack.popTopN(3));
+        assertEquals(1, stack.size());
+    }
+
+}
