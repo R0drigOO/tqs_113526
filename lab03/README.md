@@ -36,3 +36,14 @@ E (Integration test with full Spring Boot context, TestRestTemplate):
 Loads the entire application context (@SpringBootTest).
 Uses an actual client (TestRestTemplate) to send real HTTP requests.
 Tests the complete request-response cycle, including serialization and deserialization.
+
+
+**3.3 Integration test**
+Advantages:
+- More realistic tests, closer to production usage.
+- Validates database schema, queries, and configuration in a real environment.
+- Catches issues that might be missed by mocks or in-memory databases.
+Disadvantages:
+- Slower test runs and more complex setup (e.g., installing and configuring the DB).
+- Potential environmental inconsistencies (database state, permissions, etc.).
+- Increased maintenance overhead and higher resource usage.

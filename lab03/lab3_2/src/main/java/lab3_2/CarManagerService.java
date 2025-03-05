@@ -26,4 +26,17 @@ public class CarManagerService {
         return carRepository.findById(id);
     }
     
+    public Optional<Car> findSuitableReplacement(Car original) {
+        List<Car> allCars = carRepository.findAll();
+        for (Car car : allCars) {
+            if (!car.getId().equals(original.getId()) 
+            && car.getMaker().equals(original.getMaker())
+            && car.getModel().equals(original.getModel())) {
+                return Optional.of(car);
+            }
+        }
+        
+        return Optional.empty();
+    }
+
 }
