@@ -223,3 +223,14 @@ ERRO[0090] thresholds on metrics 'http_req_duration, http_req_failed' have been 
 ### ------------------------------------------------------------------------------------------
 
 
+# 7.3 Frontend performance, accessibility & best practices
+
+c)
+- What metrics are contributing the most to the frontend perceived performance? What do
+they mean?
+HTTP Request Duration, HTTP Requests and HTTP Request Failures
+- How would you make the site more accessible?
+Proper HTML semantic, descriptive text on images, etc
+
+
+### ------------------------------------------------------------------------------------------
