@@ -1,8 +1,11 @@
 # 7.1 Set up k6 tool
 d)
 - How long did the API call take?
+An average of 226ms
 - How many requests were made?
+Only 1 request were made
 - How many requests failed? (i.e., whose HTTP status code was not 200)
+0 requests were made
 
 WARN[0000] There were unknown fields in the options exported in the script  error="json: unknown field \"interations\""
      execution: local
@@ -50,8 +53,11 @@ default ✓ [======================================] 1 VUs  00m00.2s/10m0s  1/1 
 # 7.2 Load test and results monitoring
 a)
 - How long did the API calls take on average, minimum and maximum?
+Average: 152.34ms, Minimum: 5.29ms, Maximum: 711.92ms
 - How many requests were made?
+1995
 - How many requests failed? (i.e., whose HTTP status code was not 200)
+0
 
 
   █ TOTAL RESULTS 
@@ -228,9 +234,23 @@ ERRO[0090] thresholds on metrics 'http_req_duration, http_req_failed' have been 
 c)
 - What metrics are contributing the most to the frontend perceived performance? What do
 they mean?
-HTTP Request Duration, HTTP Requests and HTTP Request Failures
+HTTP Request Duration (duration of the API call, lower is better because it means that the response comes faster), HTTP Requests (number of API calls made, a higher value means less responsiveness due to the overload of the backend) and HTTP Request Failures (proportion of API calls that fail due to erros)
 - How would you make the site more accessible?
 Proper HTML semantic, descriptive text on images, etc
 
+d)
+Using Chrome's Developer Tools in incognito mode ensures that cached data, cookies, and extensions do not influence the analysis. This allows the results to be more reliable and better reflect the experience of a first-time user.
 
-### ------------------------------------------------------------------------------------------
+e)
+Running Lighthouse for a desktop in an incognito window often produces different scores compared to previous analyses because it uses different settings. The desktop report usually assumes a faster connection and more capable hardware, which can lead to higher performance scores.
+
+f)
+Performance: Directly impacts user experience (page load times, smooth interactions) and retention.
+Accessibility: Ensures that all users have a good experience and can navigate the site without problems.
+Best Practices: Maintainable, secure, and efficient code, reducing bugs and security issues.
+SEO: Improves search visibility.
+Testing these aspects helps catch issues early which prevents long-term negative impacts on usability, legal compliance, and business metrics.
+
+g)
+Accessibility: Lack of semantic HTML or missing alternative text on images hinders our experience.
+Best Practices & SEO: Outdated libraries or deprecated APIs impact search engine and rankings.
