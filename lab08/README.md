@@ -8,8 +8,12 @@ mvn clean verify sonar:sonar \
   -Dsonar.host.url=http://127.0.0.1:9000 \
   -Dsonar.token=sqp_32197fefed7f437a56fb340c64453cbe0137bba5
 
+### ------------------------------------------------------------------------------------------
+
 f) In general the code pass the quality gate because it has 0 security and reliability issues, 1 security hotspot with 0% duplications, however, it has 36 maintainability issues which most of them don't greatly affect the quality but some (3) of them can cause a infinite loop iteraction.
 The coverage is also ok/good, has Dip.java, BoundedSetOfNaturals.java and EuromillionsDraw.java have 80+% of coverage but Dip.java has 8 uncovered conditions which is a bit high and CuponEuromillions.java only have 35% coverage with 2 uncovered conditions
+
+### ------------------------------------------------------------------------------------------
 
 g) Issue | Problem | description | How to solve
 Security:           - None
@@ -31,3 +35,7 @@ Maintainability:    - Problem: "Preconditions" and logging arguments should not 
 Security hotspot:   - Problem: Using pseudorandom number generators (PRNGs) is security-sensitivejava:S2245
                     - Description: PRNGs are algorithms that produce sequences of numbers that only approximate true randomness. While they are suitable for applications like simulations or modeling, they are not appropriate for security-sensitive contexts because their outputs can be predictable if the internal state is known. In contrast, cryptographically secure pseudorandom number generators (CSPRNGs) are designed to be secure against prediction attacks. CSPRNGs use cryptographic algorithms to ensure that the generated sequences are not only random but also unpredictable, even if part of the sequence or the internal state becomes known. This unpredictability is crucial for security-related tasks such as generating encryption keys, tokens, or any other values that must remain confidential and resistant to guessing attacks.
                     - How to fix: Use a cryptographically secure pseudo random number generator (CSPRNG) like "java.security.SecureRandom" in place of a non-cryptographic PRNG. Use the generated random values only once. You should not expose the generated random value. If you have to store it, make sure that the database or file is secure.
+
+### ------------------------------------------------------------------------------------------
+
+h) Checkstyle, PMD, and SpotBugs are static analysis tools for Java that help to ensure code quality and maintainability. Checkstyle helps with formatting and coding conventions, PMD flags common code "bad smells" and performance issues, and SpotBugs inspects compiled bytecode for potential bugs or vulnerabilities. They help ensure code quality and maintainability.
