@@ -1,0 +1,6 @@
+projectKey=Euromillion
+serverUrl=http://127.0.0.1:9000
+serverVersion=25.3.0.104237
+dashboardUrl=http://127.0.0.1:9000/dashboard?id=Euromillion
+ceTaskId=c8330f2e-3f63-421c-a68e-7a7e4ceda6f8
+ceTaskUrl=http://127.0.0.1:9000/api/ce/task?id=c8330f2e-3f63-421c-a68e-7a7e4ceda6f8
