@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Nova Reserva</title>
+</head>
+<body>
+<h1>Fazer uma Reserva</h1>
+<form action="#" th:action="@{/reservations/new}" method="post">
+    <label for="mealId">ID da Refeição:</label>
+    <input type="number" name="mealId" id="mealId" required/>
+
+    <br/><br/>
+
+    <label for="date">Data da Reserva:</label>
+    <input type="date" name="date" id="date" required/>
+
+    <br/><br/>
+
+    <label for="studentName">Nome do Aluno:</label>
+    <input type="text" name="studentName" id="studentName" required/>
+
+    <br/><br/>
+
+    <button type="submit">Reservar</button>
+</form>
+
+<p><a th:href="@{/restaurants}">Voltar</a></p>
+</body>
+</html>

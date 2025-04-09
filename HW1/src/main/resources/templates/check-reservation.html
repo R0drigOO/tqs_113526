@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Verificar Reserva</title>
+</head>
+<body>
+<h1>Verificação de Reserva (Staff)</h1>
+
+<form action="#" th:action="@{/reservations/check}" method="post">
+    <label for="reservationCode">Código da Reserva:</label>
+    <input type="text" name="reservationCode" id="reservationCode" required />
+    <button type="submit">Verificar / Usar</button>
+</form>
+
+<div th:if="${reservationCode != null}">
+    <p>Código informado: <span th:text="${reservationCode}"></span></p>
+    <p th:if="${used}">→ Reserva marcada como usada com sucesso.</p>
+    <p th:if="${!used}">→ Reserva inválida ou já estava usada.</p>
+</div>
+
+<p><a th:href="@{/restaurants}">Voltar</a></p>
+</body>
+</html>

@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Lista de Refeições</title>
+</head>
+<body>
+<h1>Refeições disponíveis</h1>
+<p th:text="'Restaurante ID: ' + ${restaurantId}"></p>
+<p th:text="'Data Inicial: ' + ${startDate}"></p>
+<p th:text="'Data Final: ' + ${endDate}"></p>
+
+<table border="1">
+    <tr>
+        <th>ID</th>
+        <th>Nome</th>
+        <th>Descrição</th>
+        <th>Data</th>
+        <th>Preço</th>
+        <th>Tipo</th>
+    </tr>
+    <tr th:each="meal : ${meals}">
+        <td th:text="${meal.id}"></td>
+        <td th:text="${meal.nome}"></td>
+        <td th:text="${meal.descricao}"></td>
+        <td th:text="${meal.data}"></td>
+        <td th:text="${meal.preco}"></td>
+        <td th:text="${meal.tipoPrato}"></td>
+    </tr>
+</table>
+
+<p>Para reservar uma refeição específica, vá até <a th:href="@{/reservations/new}">Fazer Reserva</a>.</p>
+
+<p>
+    <a th:href="@{/restaurants}">Voltar à página inicial</a>
+</p>
+</body>
+</html>

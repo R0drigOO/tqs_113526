@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Seleção de Restaurante</title>
+</head>
+<body>
+<h1>Selecione o Restaurante</h1>
+
+<form action="#" th:action="@{/restaurants}" method="post">
+    <label for="restaurantId">Restaurante ID:</label>
+    <input type="number" id="restaurantId" name="restaurantId" required />
+
+    <br/><br/>
+
+    <label for="startDate">Data inicial:</label>
+    <input type="date" id="startDate" name="startDate" required />
+
+    <br/><br/>
+
+    <label for="endDate">Data final:</label>
+    <input type="date" id="endDate" name="endDate" required />
+
+    <br/><br/>
+
+    <button type="submit">Ver refeições</button>
+</form>
+
+<br/>
+<a th:href="@{/reservations/new}">Fazer uma reserva</a> |
+<a th:href="@{/reservations/check}">Verificar reserva (staff)</a>
+
+</body>
+</html>

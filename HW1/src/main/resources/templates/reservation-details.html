@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Detalhes da Reserva</title>
+</head>
+<body>
+<h1>Detalhes da Reserva</h1>
+<div th:if="${reservation != null}">
+    <p>Código da Reserva: <span th:text="${reservation.reservationCode}"></span></p>
+    <p>Data: <span th:text="${reservation.date}"></span></p>
+    <p>Usada: <span th:text="${reservation.used}"></span></p>
+    <p>MealId: <span th:text="${reservation.mealId}"></span></p>
+    <p>Nome do Aluno: <span th:text="${reservation.studentName}"></span></p>
+
+    <form action="#" th:action="@{|/reservations/${reservation.reservationCode}/cancel|}" method="post">
+        <button type="submit">Cancelar Reserva</button>
+    </form>
+</div>
+<div th:if="${reservation == null}">
+    <p>Reserva não encontrada!</p>
+</div>
+
+<p><a th:href="@{/restaurants}">Voltar</a></p>
+</body>
+</html>
